@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 
 class ModeloSVM:
     def __init__(self, X_train, X_test, y_train, y_test, **kwargs):
-        # Se fuerza kernel='rbf' sin modificar la firma
+        # Se fuerza kernel='rbf' para transformar los datos
         kwargs.setdefault('kernel', 'rbf')
         kwargs.setdefault('C', 1.0)
         kwargs.setdefault('gamma', 'scale')
