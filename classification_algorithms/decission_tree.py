@@ -4,7 +4,7 @@ from sklearn.metrics import accuracy_score, confusion_matrix, classification_rep
 # from sklearn.model_selection import train_test_split
 import seaborn as sns
 import matplotlib.pyplot as plt
-
+  
 class DecisionTree:
     def __init__(self, X_train, X_test, y_train, y_test, **kwargs):
         self.X_train = X_train
