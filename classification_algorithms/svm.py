@@ -6,7 +6,7 @@ import seaborn as sns
 from sklearn.datasets import make_moons
 from sklearn.model_selection import train_test_split
 
-class ModeloSVM:
+class SVM:
     def __init__(self, X_train, X_test, y_train, y_test, **kwargs):
         # Se fuerza kernel='rbf' para transformar los datos
         kwargs.setdefault('kernel', 'rbf')
@@ -58,7 +58,7 @@ if __name__ == "__main__":
     X, y = make_moons(n_samples=1000, noise=0.25, random_state=42)
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 
-    modelo = ModeloSVM(X_train, X_test, y_train, y_test)
+    modelo = SVM(X_train, X_test, y_train, y_test)
     modelo.entrenar()
     modelo.metricas()
     modelo.matriz_confusion()

@@ -1,17 +1,18 @@
-from sklearn.neural_network import MLPClassifier
+from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
-from sklearn.datasets import make_classification
-from sklearn.model_selection import train_test_split
+# from sklearn.datasets import make_classification
+# from sklearn.model_selection import train_test_split
 import seaborn as sns
+# import numpy as np
 import matplotlib.pyplot as plt
 
-class ModeloPerceptronMulticapa:
+class LogisticRegression:
     def __init__(self, X_train, X_test, y_train, y_test, **kwargs):
         self.X_train = X_train
         self.X_test = X_test
         self.y_train = y_train
         self.y_test = y_test
-        self.modelo = MLPClassifier(**kwargs)
+        self.modelo = LogisticRegression(**kwargs)
 
     def entrenar(self):
         self.modelo.fit(self.X_train, self.y_train)
@@ -30,14 +31,15 @@ class ModeloPerceptronMulticapa:
         sns.heatmap(cm, annot=True, fmt="d", cmap="Blues")
         plt.xlabel("Predicción")
         plt.ylabel("Real")
-        plt.title("Matriz de Confusión - Perceptrón Multicapa")
+        plt.title("Matriz de Confusión - Regresión Logística")
         plt.show()
 
-if __name__ == "__main__":
-    X, y = make_classification(n_samples=200, n_features=8, random_state=42)
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
-    modelo = ModeloPerceptronMulticapa(X_train, X_test, y_train, y_test, hidden_layer_sizes=(50,), max_iter=500)
-    modelo.entrenar()
-    modelo.metricas()
-    modelo.matriz_confusion()
+# if __name__ == "__main__":
+#     X, y = make_classification(n_samples=200, n_features=8, random_state=42)
+#     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+#     modelo = LogisticRegression(X_train, X_test, y_train, y_test, max_iter=200)
+#     modelo.entrenar()
+#     modelo.metricas()
+#     modelo.matriz_confusion()

@@ -1,0 +1,2 @@
+from classification_algorithms.perceptron.multicapa import PerceptronMulticapa
+from classification_algorithms.perceptron.perceptron import Perceptron
