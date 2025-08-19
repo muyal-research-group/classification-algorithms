@@ -1,0 +1,30 @@
+[project]
+name = "classification_algorithms"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Ignacio Castillo",email = "ignacio.bcastillo@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.9,<4"
+dependencies = [
+    "axo @ file:///home/nacho/Programming/Python/axo/dist/axo-0.0.1a12.tar.gz",
+    "seaborn (>=0.13.2,<0.14.0)",
+    "scikit-learn (>=1.5,<2.0)",
+    "numpy (<2.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+[[tool.poetry.source]]
+name = "test"
+url = "https://test.pypi.org/simple/"
+priority = "supplemental"
+                          
+[tool.poetry.group.dev.dependencies]
+coverage = "^7.10.4"
+pytest = "^8.4.1"
+pytest-asyncio = "^1.1.0"
+
