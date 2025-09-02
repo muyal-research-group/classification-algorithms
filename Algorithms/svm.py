@@ -5,9 +5,19 @@ from sklearn.metrics import accuracy_score, confusion_matrix, classification_rep
 import seaborn as sns
 from sklearn.datasets import make_moons
 from sklearn.model_selection import train_test_split
+import numpy.typing as npt
+from typing import Dict, Any
+#from axo import Axo, axo_method
 
 class ModeloSVM:
-    def __init__(self, X_train, X_test, y_train, y_test, **kwargs):
+    def __init__(
+        self, 
+        X_train: npt.NDArray, 
+        X_test: npt.NDArray, 
+        y_train: npt.NDArray, 
+        y_test: npt.NDArray, 
+        **kwargs
+    ):
         # Se fuerza kernel='rbf' para transformar los datos
         kwargs.setdefault('kernel', 'rbf')
         kwargs.setdefault('C', 1.0)
@@ -18,19 +28,27 @@ class ModeloSVM:
         self.y_test = y_test
         self.modelo = SVC(**kwargs)
 
-    def entrenar(self):
+    # @axo_method
+    def train(self, **kwargs) -> Dict[str, Any]:
         self.modelo.fit(self.X_train, self.y_train)
 
-    def predecir(self):
+    # @axo_method
+    def predict(self, **kwargs) -> npt.NDArray:
         return self.modelo.predict(self.X_test)
 
-    def metricas(self):
-        y_pred = self.predecir()
-        print("Accuracy:", accuracy_score(self.y_test, y_pred))
-        print("\nReporte de Clasificación:\n", classification_report(self.y_test, y_pred))
+    # @axo_method
+    def metrics(self, **kwargs) -> Dict[str, Any]:
+        y_pred = self.predict()
+        acc = accuracy_score(self.y_test, y_pred)
+        cr = classification_report(self.y_test, y_pred)
+        return {
+            "accuracy": acc,
+            "classification_report": cr
+        }
 
-    def matriz_confusion(self):
-        y_pred = self.predecir()
+    # @axo_method
+    def confusion_matrix(self, **kwargs) -> None:
+        y_pred = self.predict()
         cm = confusion_matrix(self.y_test, y_pred)
         sns.heatmap(cm, annot=True, fmt="d", cmap="Blues")
         plt.xlabel("Predicción")
@@ -38,7 +56,8 @@ class ModeloSVM:
         plt.title("Matriz de Confusión - SVM")
         plt.show()
 
-    def graficar_frontera(self):
+    # @axo_method
+    def graph_border(self)-> None:
         paso = 0.01
         x_min, x_max = self.X_train[:, 0].min() - 1, self.X_train[:, 0].max() + 1
         y_min, y_max = self.X_train[:, 1].min() - 1, self.X_train[:, 1].max() + 1
@@ -58,8 +77,10 @@ if __name__ == "__main__":
     X, y = make_moons(n_samples=1000, noise=0.25, random_state=42)
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 
-    modelo = ModeloSVM(X_train, X_test, y_train, y_test)
-    modelo.entrenar()
-    modelo.metricas()
-    modelo.matriz_confusion()
-    modelo.graficar_frontera()
+    model = ModeloSVM(X_train, X_test, y_train, y_test)
+    model.train()
+    results = model.metrics()
+    print("Accuracy:", results["accuracy"])
+    print("Reporte de clasificación:", results["classification_report"])
+    model.confusion_matrix()
+    model.graph_border()
