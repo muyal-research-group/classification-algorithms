@@ -3,10 +3,10 @@ from sklearn.metrics import mean_squared_error, r2_score
 import matplotlib.pyplot as plt
 
 
-from sklearn.datasets import make_regression
-from sklearn.model_selection import train_test_split
+# from sklearn.datasets import make_regression
+# from sklearn.model_selection import train_test_split
 
-class ModeloRegresionLineal:
+class LinearRegression:
     def __init__(self, X_train, X_test, y_train, y_test, **kwargs):
         self.X_train = X_train
         self.X_test = X_test
@@ -34,11 +34,11 @@ class ModeloRegresionLineal:
         plt.ylabel("Predicciones")
         plt.title("Regresión Lineal - Comparación Real vs Predicción")
         plt.show()
-if __name__ == "__main__":
-    X, y = make_regression(n_samples=200, n_features=5, noise=0.3, random_state=42)
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+# if __name__ == "__main__":
+#     X, y = make_regression(n_samples=200, n_features=5, noise=0.3, random_state=42)
+#     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
-    modelo = ModeloRegresionLineal(X_train, X_test, y_train, y_test)
-    modelo.entrenar()
-    modelo.metricas()
-    modelo.grafico_regresion()
+#     modelo = LinearRegression(X_train, X_test, y_train, y_test)
+#     modelo.entrenar()
+#     modelo.metricas()
+#     modelo.grafico_regresion()

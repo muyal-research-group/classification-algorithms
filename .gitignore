@@ -1,0 +1,8 @@
+.coverage
+*.lock
+htmlcov/
+*.png
+*.jpg
+*.pdf
+**/__pycache__/
+
