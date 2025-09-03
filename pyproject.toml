@@ -8,10 +8,11 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.9,<4"
 dependencies = [
-    "axo @ file:///home/nacho/Programming/Python/axo/dist/axo-0.0.1a12.tar.gz",
     "seaborn (>=0.13.2,<0.14.0)",
     "scikit-learn (>=1.5,<2.0)",
-    "numpy (<2.0)"
+    "numpy (<2.0)",
+    "axo (==0.0.3a0)",
+    "xgboost (==1.7.6)"
 ]
 
 
