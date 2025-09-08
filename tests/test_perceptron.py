@@ -19,7 +19,7 @@ def test_perceptron(example_dataset:Tuple[npt.NDArray,npt.NDArray,npt.NDArray,np
     X_train,X_test,y_train,y_test = example_dataset
     
     with AxoContextManager.local() as lr:
-        p:Perceptron = Perceptron(
+        p = Perceptron(
             X_train         = X_train,
             X_test          = X_test,
             y_train         = y_train,
@@ -31,6 +31,13 @@ def test_perceptron(example_dataset:Tuple[npt.NDArray,npt.NDArray,npt.NDArray,np
         y = p.predict(axo_endpoint_id = "axo-endpoint-0")
         print(y)
         assert y.is_ok
+        p.y_pred = y.unwrap()
+        print("Predictions:", p.y_pred)
 
 
-        
+        metrics_result = p.get_metrics()
+        assert "accuracy" in metrics_result
+        assert "classification_report" in metrics_result
+        assert 0.0 <= metrics_result["accuracy"] <= 1.0
+        print(f"Metrics: {metrics_result["classification_report"]}")
+        print(f"Precision between 0 and 1: {metrics_result["accuracy"]}")
