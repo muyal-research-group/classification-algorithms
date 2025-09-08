@@ -35,6 +35,8 @@ class LinearRegression(Axo):
 
     def get_metrics(self, **kwargs) -> Dict[str, Any]:
         y_pred = self.predict()
+        if hasattr(y_pred, "unwrap"): 
+            y_pred = y_pred.unwrap()
         mse = mean_squared_error(self.y_test, y_pred)
         r2 = r2_score(self.y_test, y_pred)
         return {
