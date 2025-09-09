@@ -1,5 +1,5 @@
 import pytest
-from classification_algorithms.Knn import KNNClassifier as knn
+from classification_algorithms.knn import KNNClassifier as knn
 from sklearn.datasets import make_classification
 from sklearn.model_selection import train_test_split
 from axo.contextmanager import AxoContextManager

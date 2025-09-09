@@ -1,5 +1,5 @@
 import pytest
-from classification_algorithms.Randomforest import RandomForest
+from classification_algorithms.random_forest import RandomForest
 from sklearn.datasets import make_classification
 from sklearn.model_selection import train_test_split
 from axo.contextmanager import AxoContextManager
