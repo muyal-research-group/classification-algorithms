@@ -32,8 +32,14 @@ class Perceptron(Axo):
 
     def get_metrics(self,**kwargs):
         y_pred = self.predict()
-        print("Accuracy:", accuracy_score(self.y_test, y_pred))
-        print("\nReporte de Clasificación:\n", classification_report(self.y_test, y_pred))
+        if hasattr(y_pred,"unwrap"):
+            y_pred = y_pred.unwrap()
+        acc =  accuracy_score(self.y_test, y_pred)
+        cr =  classification_report(self.y_test, y_pred)
+        return {
+            "accuracy": acc,
+            "classification_report": cr
+        }
 
     def confussion_matrix(self,**kwargs):
         y_pred = self.predict()

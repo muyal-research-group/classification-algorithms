@@ -2,7 +2,7 @@ name: UNIT_TEST
   
 on:
   pull_request:
-    branches: ["master"]
+    branches: ["main"]
     paths:
       - "classification_algorithms/**"
       - "test/**"

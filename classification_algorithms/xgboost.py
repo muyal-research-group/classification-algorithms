@@ -35,8 +35,10 @@ class XGBoost(Axo):
 
     def get_metrics(self, **kwargs) -> Dict[str, Any]:
         y_pred = self.predict()
+        if hasattr(y_pred, "unwrap"):
+            y_pred = y_pred.unwrap()
         acc = accuracy_score(self.y_test, y_pred)
-        report = classification_report(self.y_test, y_pred, output_dict=True)
+        report = classification_report(self.y_test, y_pred)
 
         return {
             "accuracy": acc,

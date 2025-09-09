@@ -34,6 +34,8 @@ class MultiLayer(Axo):
 
     def get_metrics(self) -> Dict[str, Any]:
         y_pred = self.predict()
+        if hasattr(y_pred, "unwrap"): 
+            y_pred = y_pred.unwrap()
         acc =  accuracy_score(self.y_test, y_pred)
         cr = classification_report(self.y_test, y_pred)
         return {

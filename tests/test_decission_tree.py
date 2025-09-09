@@ -1,5 +1,5 @@
 import pytest
-from classification_algorithms.perceptron import Perceptron
+from classification_algorithms.decission_tree import DecisionTree
 from sklearn.datasets import make_classification
 from sklearn.model_selection import train_test_split
 from axo.contextmanager import AxoContextManager
@@ -19,25 +19,25 @@ def test_perceptron(example_dataset:Tuple[npt.NDArray,npt.NDArray,npt.NDArray,np
     X_train,X_test,y_train,y_test = example_dataset
     
     with AxoContextManager.local() as lr:
-        p : Perceptron = Perceptron(
-            X_train         = X_train,
-            X_test          = X_test,
-            y_train         = y_train,
-            y_test          = y_test,
+        d :DecisionTree = DecisionTree(
+            X_train = X_train,
+            X_test  = X_test,
+            y_train = y_train,
+            y_test  = y_test,
         )
-        x = p.train(axo_endpoint_id = "axo-endpoint-0")
+        x = d.train(axo_endpoint_id = "axo-endpoint-0")
         print(x)
         assert x.is_ok
-        y = p.predict(axo_endpoint_id = "axo-endpoint-0")
+        y = d.predict(axo_endpoint_id = "axo-endpoint-0")
         print(y)
         assert y.is_ok
-        p.y_pred = y.unwrap()
-        print("Predictions:", p.y_pred)
+        d.y_pred = y.unwrap()
+        print("Predictions:", d.y_pred)
 
-
-        metrics_result = p.get_metrics()
+        metrics_result = d.get_metrics()
         assert "accuracy" in metrics_result
         assert "classification_report" in metrics_result
         assert 0.0 <= metrics_result["accuracy"] <= 1.0
-        print(f"Metrics: {metrics_result['classification_report']}")
+        print(f"Metrics: {metrics_result['classification_report']}" )
         print(f"Precision between 0 and 1: {metrics_result['accuracy']}")
+        
