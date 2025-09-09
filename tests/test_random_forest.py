@@ -34,5 +34,5 @@ def test_random_forest(dataset_example : Tuple[npt.NDArray,npt.NDArray,npt.NDArr
         assert "accuracy" in metrics_result
         assert "classification_report" in metrics_result
         assert 0.0 <= metrics_result["accuracy"] <= 1.0
-        print(f"Metrics: {metrics_result["classification_report"]}")
-        print(f"Precision between 0 and 1: {metrics_result["accuracy"]}")
+        print(f"Metrics: {metrics_result['classification_report']}")
+        print(f"Precision between 0 and 1: {metrics_result['accuracy']}")

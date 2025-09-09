@@ -35,6 +35,6 @@ def test_multilayer(example_dataset:Tuple[npt.NDArray,npt.NDArray,npt.NDArray,np
         metrics_result = lr.get_metrics()
         assert "MSE" in metrics_result
         assert "R2" in metrics_result
-        print(f"Mean Square Error (MSE): {metrics_result["MSE"]}")
-        print(f"Coefficient of determination (R2): {metrics_result["R2"]}")
+        print(f"Mean Square Error (MSE): {metrics_result['MSE']}")
+        print(f"Coefficient of determination (R2): {metrics_result['R2']}")
         

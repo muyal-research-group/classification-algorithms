@@ -33,5 +33,5 @@ def test_svm(dataset_example : Tuple[npt.NDArray,npt.NDArray,npt.NDArray,npt.NDA
         assert "accuracy" in metrics_results
         assert "classification_report" in metrics_results
         assert 0.0 <= metrics_results["accuracy"] <= 1.0
-        print(f"Metrics:{metrics_results["classification_report"]}")
-        print(f"Precision between 0 and 1:  {metrics_results["accuracy"]}")
+        print(f"Metrics:{metrics_results['classification_report']}")
+        print(f"Precision between 0 and 1:  {metrics_results['accuracy']}")
