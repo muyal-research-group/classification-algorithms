@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: ["master"]
     paths:
-      - "src/**"
+      - "classification_algorithms/**"
       - "test/**"
       - "pyproject.toml"
   

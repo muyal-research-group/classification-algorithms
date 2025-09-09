@@ -16,7 +16,7 @@ poetry install
 
 To install from the prebuilt package:
 ```bash
-poetry add axo==0.0.1a12 
+poetry add axo==0.0.3a1
 ```
 
 ⚠️ please use the newest version of Axo you can check it  https://github.com/muyal-research-group/axo
