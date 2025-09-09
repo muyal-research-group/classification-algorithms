@@ -15,7 +15,7 @@ def dataset_example():
 def test_xgbosst(dataset_example : Tuple[npt.NDArray,npt.NDArray,npt.NDArray,npt.NDArray]):
     X_train, X_test, y_train, y_test = dataset_example
     with AxoContextManager.local() as Ir:
-        xg = XGBoost(
+        xg : XGBoost = XGBoost(
             X_train = X_train, 
             X_test=X_test, 
             y_train =y_train, 

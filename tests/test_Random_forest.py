@@ -15,7 +15,7 @@ def dataset_example():
 def test_random_forest(dataset_example : Tuple[npt.NDArray,npt.NDArray,npt.NDArray,npt.NDArray]):
     X_train, X_test, y_train, y_test = dataset_example
     with AxoContextManager.local() as Ir:
-        rf= RandomForest(
+        rf : RandomForest= RandomForest(
             X_train  = X_train,
             X_test   = X_test,
             y_train  = y_train,

@@ -15,7 +15,7 @@ def example_dataset():
 def test_regression_logistic(example_dataset:Tuple[npt.NDArray,npt.NDArray,npt.NDArray, npt.NDArray]):
     X_train,X_test,y_train,y_test = example_dataset
     with AxoContextManager.local() as Ir:
-        rl = LogisticRegression(
+        rl : LogisticRegression = LogisticRegression(
             X_train =X_train, 
             X_test  =X_test, 
             y_train =y_train, 

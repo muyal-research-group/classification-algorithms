@@ -17,7 +17,7 @@ def test_multilayer(example_dataset:Tuple[npt.NDArray,npt.NDArray,npt.NDArray,np
     X_train,X_test,y_train,y_test = example_dataset
     
     with AxoContextManager.local() as lr:
-        ml = MultiLayer(
+        ml : MultiLayer = MultiLayer(
             X_train = X_train,
             X_test = X_test,
             y_train = y_train,

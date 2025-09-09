@@ -19,7 +19,7 @@ def test_perceptron(example_dataset:Tuple[npt.NDArray,npt.NDArray,npt.NDArray,np
     X_train,X_test,y_train,y_test = example_dataset
     
     with AxoContextManager.local() as lr:
-        k = knn(
+        k :knn = knn(
             X_train = X_train,
             X_test = X_test,
             y_train = y_train,

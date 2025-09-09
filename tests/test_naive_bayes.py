@@ -15,7 +15,7 @@ def example_dataset():
 def test_naive_bayes(example_dataset:Tuple[npt.NDArray,npt.NDArray,npt.NDArray,npt.NDArray]):
     X_train, X_test, y_train, y_test = example_dataset
     with AxoContextManager.local() as Ir:
-        nv = NaiveBayes(
+        nv : NaiveBayes = NaiveBayes(
             X_train  = X_train,
             X_test   =X_test,
             y_train  =y_train,
