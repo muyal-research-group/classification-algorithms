@@ -37,7 +37,7 @@ class SVM(Axo):
         return self.modelo.predict(self.X_test)
 
     def get_metrics(self, **kwargs) -> Dict[str, Any]:
-        y_pred = self.predict()
+        y_pred = self.Svm_predict()
         if hasattr(y_pred, "unwrap"):
             y_pred = y_pred.unwrap()
         acc = accuracy_score(self.y_test, y_pred)
@@ -48,7 +48,7 @@ class SVM(Axo):
         }
 
     def confussion_matrix(self, **kwargs) -> None:
-        y_pred = self.predict()
+        y_pred = self.Svm_predict()
         cm = confusion_matrix(self.y_test, y_pred)
         sns.heatmap(cm, annot=True, fmt="d", cmap="Blues")
         plt.xlabel("Predicción")
