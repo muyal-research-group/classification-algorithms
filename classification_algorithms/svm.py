@@ -29,11 +29,11 @@ class SVM(Axo):
         self.modelo = SVC(**kwargs)
 
     @axo_method
-    def train(self, **kwargs) -> Dict[str, Any]:
+    def Svm_train(self, **kwargs) -> Dict[str, Any]:
         self.modelo.fit(self.X_train, self.y_train)
 
     @axo_method
-    def predict(self, **kwargs) -> npt.NDArray:
+    def Svm_predict(self, **kwargs) -> npt.NDArray:
         return self.modelo.predict(self.X_test)
 
     def get_metrics(self, **kwargs) -> Dict[str, Any]:

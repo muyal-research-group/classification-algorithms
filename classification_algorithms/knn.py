@@ -25,12 +25,12 @@ class KNNClassifier(Axo):
         self.model = KNN(**kwargs)
 
     @axo_method
-    def train(self, **kwargs) -> Dict[str, Any]:
+    def Knn_train(self, **kwargs) -> Dict[str, Any]:
         fitted = self.model.fit(self.X_train, self.y_train)
         return fitted.get_params()
 
     @axo_method
-    def predict(self, **kwargs) -> npt.NDArray:
+    def Knn_predict(self, **kwargs) -> npt.NDArray:
         return self.model.predict(self.X_test)
 
     def get_metrics(self, **kwargs) -> Dict[str, Any]:

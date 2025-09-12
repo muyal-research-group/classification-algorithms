@@ -24,12 +24,12 @@ class RandomForest(Axo):
         self.model = RF(**kwargs)
 
     @axo_method
-    def train(self, **kwargs) -> Dict[str, Any]:
+    def RandomForest_train(self, **kwargs) -> Dict[str, Any]:
         fitted = self.model.fit(self.X_train, self.y_train)
         return fitted.get_params()
 
     @axo_method
-    def predict(self, **kwargs) -> npt.NDArray:
+    def RandomForest_predict(self, **kwargs) -> npt.NDArray:
         return self.model.predict(self.X_test)
 
     def get_metrics(self, **kwargs) -> Dict[str, Any]:

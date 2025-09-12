@@ -25,10 +25,10 @@ def test_perceptron(example_dataset:Tuple[npt.NDArray,npt.NDArray,npt.NDArray,np
             y_train = y_train,
             y_test  = y_test,
         )
-        x = d.train(axo_endpoint_id = "axo-endpoint-0")
+        x = d.DecissionTree_train(axo_endpoint_id = "axo-endpoint-0")
         print(x)
         assert x.is_ok
-        y = d.predict(axo_endpoint_id = "axo-endpoint-0")
+        y = d.DecissionTree_predict(axo_endpoint_id = "axo-endpoint-0")
         print(y)
         assert y.is_ok
         d.y_pred = y.unwrap()

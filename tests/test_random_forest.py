@@ -22,10 +22,10 @@ def test_random_forest(dataset_example : Tuple[npt.NDArray,npt.NDArray,npt.NDArr
             y_test   = y_test
         )
 
-        x = rf.train(axo_edpoint_id = "axo-edpoint-0")
+        x = rf.RandomForest_train(axo_edpoint_id = "axo-edpoint-0")
         assert x.is_ok
 
-        y = rf.predict(axo_edpoint_id = "axo-edpoint-0")
+        y = rf.RandomForest_predict(axo_edpoint_id = "axo-edpoint-0")
         assert y.is_ok
         rf.y_pred = y.unwrap()
         print("Predictions:", rf.y_pred)

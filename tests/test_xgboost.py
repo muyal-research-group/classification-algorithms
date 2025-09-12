@@ -21,10 +21,10 @@ def test_xgbosst(dataset_example : Tuple[npt.NDArray,npt.NDArray,npt.NDArray,npt
             y_train =y_train, 
             y_test=y_test
         )
-        x = xg.train(axo_edpoint_id = "axo-edpoint-0")
+        x = xg.XgBosst_train(axo_edpoint_id = "axo-edpoint-0")
         assert x.is_ok
 
-        y = xg.predict(axp_edpoint_id = "axo-edpoint-0")
+        y = xg.XgBosst_predict(axp_edpoint_id = "axo-edpoint-0")
         assert y.is_ok
         xg.y_pred = y.unwrap()
         print("Predictions:", xg.y_pred)

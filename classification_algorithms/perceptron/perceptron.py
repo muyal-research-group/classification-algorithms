@@ -22,12 +22,12 @@ class Perceptron(Axo):
         self.modelo = P(**kwargs)
 
     @axo_method
-    def train(self,**kwargs)->Dict[str,Any]:
+    def Perceptron_train(self,**kwargs)->Dict[str,Any]:
         x = self.modelo.fit(self.X_train, self.y_train)
         return x.get_params()
 
     @axo_method
-    def predict(self,**kwargs):
+    def Perceptron_predict(self,**kwargs):
         return self.modelo.predict(self.X_test)
 
     def get_metrics(self,**kwargs):

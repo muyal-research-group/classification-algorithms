@@ -23,11 +23,11 @@ def test_multilayer(example_dataset:Tuple[npt.NDArray,npt.NDArray,npt.NDArray,np
             y_train = y_train,
             y_test = y_test
         )
-        x = ml.train(axo_endpoint_id = "axo-endpoint-0")
+        x = ml.Multilayer_train(axo_endpoint_id = "axo-endpoint-0")
         print("Aqui imprime train",x)
         assert x.is_ok
 
-        y = ml.predict(axo_endpoint_id = "axo-endpoint-0")
+        y = ml.Multilayer_predict(axo_endpoint_id = "axo-endpoint-0")
         assert y.is_ok
         ml.y_pred = y.unwrap()
         print("Predictions:", ml.y_pred)

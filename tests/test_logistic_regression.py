@@ -22,10 +22,10 @@ def test_regression_logistic(example_dataset:Tuple[npt.NDArray,npt.NDArray,npt.N
             y_test  =y_test
         )
 
-        x = rl.train(axo_endpoint_id = "axo-endpoint-0")
+        x = rl.LogisticRegression_train(axo_endpoint_id = "axo-endpoint-0")
         assert x.is_ok
 
-        y = rl.predict(axo_endpoint_id = "axo-endpoint-0")
+        y = rl.LogisticRegression_predict(axo_endpoint_id = "axo-endpoint-0")
         assert y.is_ok
         rl.y_pred = y.unwrap()
         print("Predictions:", rl.y_pred) 

@@ -25,12 +25,12 @@ class LinearRegression(Axo):
         self.modelo = LR(**kwargs)
 
     @axo_method
-    def train(self, **kwargs) -> Dict[str, Any]:
+    def LinearRegression_train(self, **kwargs) -> Dict[str, Any]:
         fitted = self.modelo.fit(self.X_train, self.y_train)
         return fitted.get_params()
 
     @axo_method
-    def predict(self, **kwargs) -> npt.NDArray:
+    def LinearRegression_predict(self, **kwargs) -> npt.NDArray:
         return self.modelo.predict(self.X_test)
 
     def get_metrics(self, **kwargs) -> Dict[str, Any]:

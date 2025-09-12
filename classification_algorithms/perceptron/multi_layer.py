@@ -24,12 +24,12 @@ class MultiLayer(Axo):
         self.modelo = MLPC(**kwargs)
 
     @axo_method
-    def train(self, **kwargs) -> Dict[str, Any]:
+    def Multilayer_train(self, **kwargs) -> Dict[str, Any]:
         fitted = self.modelo.fit(self.X_train, self.y_train)
         return fitted.get_params()
 
     @axo_method
-    def predict(self, **kwargs) -> npt.NDArray:
+    def Multilayer_predict(self, **kwargs) -> npt.NDArray:
         return self.modelo.predict(self.X_test)
 
     def get_metrics(self) -> Dict[str, Any]:
