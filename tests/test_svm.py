@@ -21,10 +21,10 @@ def test_svm(dataset_example : Tuple[npt.NDArray,npt.NDArray,npt.NDArray,npt.NDA
             y_train =y_train, 
             y_test  =y_test
         )
-        x = svm.train(axo_edpoint_id = "axo-edpoint-0")
+        x = svm.Svm_train(axo_edpoint_id = "axo-edpoint-0")
         assert x.is_ok
 
-        y = svm.predict(axo_edpoint_id = "axo-edpoint-0")
+        y = svm.Svm_predict(axo_edpoint_id = "axo-edpoint-0")
         assert y.is_ok
         svm.y_pred = y.unwrap()
         print("Predictions:", svm.y_pred) 

@@ -24,16 +24,16 @@ class NaiveBayes(Axo):
         self.modelo = G(**kwargs)
 
     @axo_method
-    def train(self, **kwargs) -> Dict[str, Any]:
+    def NaiveBayes_train(self, **kwargs) -> Dict[str, Any]:
         fitted = self.modelo.fit(self.X_train, self.y_train)
         return fitted.get_params()
 
     @axo_method
-    def predict(self, **kwargs) -> npt.NDArray:
+    def NaiveBayes_predict(self, **kwargs) -> npt.NDArray:
         return self.modelo.predict(self.X_test)
 
     def get_metrics(self) -> Dict[str, Any]:
-        y_pred = self.predict()
+        y_pred = self.NaiveBayes_predict()
         if hasattr(y_pred, "unwrap"):
             y_pred = y_pred.unwrap()
         acc =  accuracy_score(self.y_test, y_pred)
@@ -44,7 +44,7 @@ class NaiveBayes(Axo):
         }
 
     def confussion_matrix(self):
-        y_pred = self.predict()
+        y_pred = self.NaiveBayes_predict()
         cm = confusion_matrix(self.y_test, y_pred)
         sns.heatmap(cm, annot=True, fmt="d", cmap="Blues")
         plt.xlabel("Predicción")

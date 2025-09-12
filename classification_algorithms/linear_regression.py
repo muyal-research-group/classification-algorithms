@@ -25,16 +25,16 @@ class LinearRegression(Axo):
         self.modelo = LR(**kwargs)
 
     @axo_method
-    def train(self, **kwargs) -> Dict[str, Any]:
+    def LinearRegression_train(self, **kwargs) -> Dict[str, Any]:
         fitted = self.modelo.fit(self.X_train, self.y_train)
         return fitted.get_params()
 
     @axo_method
-    def predict(self, **kwargs) -> npt.NDArray:
+    def LinearRegression_predict(self, **kwargs) -> npt.NDArray:
         return self.modelo.predict(self.X_test)
 
     def get_metrics(self, **kwargs) -> Dict[str, Any]:
-        y_pred = self.predict()
+        y_pred = self.LinearRegression_predict()
         if hasattr(y_pred, "unwrap"): 
             y_pred = y_pred.unwrap()
         mse = mean_squared_error(self.y_test, y_pred)
@@ -45,7 +45,7 @@ class LinearRegression(Axo):
         }
 
     def graph_regression(self)-> None:
-        y_pred = self.predict()
+        y_pred = self.LinearRegression_predict()
         plt.scatter(self.y_test, y_pred, alpha=0.6)
         plt.xlabel("Valores reales")
         plt.ylabel("Predicciones")

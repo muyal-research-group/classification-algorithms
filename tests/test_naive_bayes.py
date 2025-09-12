@@ -21,10 +21,10 @@ def test_naive_bayes(example_dataset:Tuple[npt.NDArray,npt.NDArray,npt.NDArray,n
             y_train  =y_train,
             y_test   = y_test
         )
-        x = nv.train(axo_edpont_id="axo-edpoint-0")
+        x = nv.NaiveBayes_train(axo_edpont_id="axo-edpoint-0")
         assert x.is_ok
 
-        y = nv.predict(axo_edpoint_id = "axo-edpoint-0")
+        y = nv.NaiveBayes_predict(axo_edpoint_id = "axo-edpoint-0")
         assert y.is_ok
         nv.y_pred = y.unwrap()
         print("Predictions:", nv.y_pred)

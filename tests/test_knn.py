@@ -25,10 +25,10 @@ def test_perceptron(example_dataset:Tuple[npt.NDArray,npt.NDArray,npt.NDArray,np
             y_train = y_train,
             y_test = y_test,
         )
-        x = k.train(axo_endpoint_id = "axo-endpoint-0")
+        x = k.Knn_train(axo_endpoint_id = "axo-endpoint-0")
         print(x)
         assert x.is_ok
-        y = k.predict(axo_endpoint_id = "axo-endpoint-0")
+        y = k.Knn_predict(axo_endpoint_id = "axo-endpoint-0")
         print(y)
         assert y.is_ok
         k.y_pred = y.unwrap()

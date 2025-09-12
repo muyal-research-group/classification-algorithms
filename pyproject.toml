@@ -12,7 +12,8 @@ dependencies = [
     "scikit-learn (>=1.5,<2.0)",
     "numpy (<2.0)",
     "axo (==0.0.3a1)",
-    "xgboost (==1.7.6)"
+    "xgboost (==1.7.6)",
+    "plotly (>=6.3.0,<7.0.0)"
 ]
 
 
